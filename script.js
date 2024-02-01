@@ -9,3 +9,7 @@ let cleanInputStrig = function (str) {
     const regex = /[+-\s]/g;
     return str.replace(regex, '');      
 }
+function isInvalidInput (str){
+    const regex = /\d+e\d+/i; // aqui não precisamos assinalar que é global (g) pq há apenas um valor. No entando, utilizamos a flag i para que o padrão regex se torne "case-insensitive"
+    return str.match(regex);
+}
