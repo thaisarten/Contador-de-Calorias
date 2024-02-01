@@ -13,7 +13,7 @@ function isInvalidInput(str) { //passos 29 a 35
     const regex = /\d+e\d+/i; // aqui não precisamos assinalar que é global (g) pq há apenas um valor. No entando, utilizamos a flag i para que o padrão regex se torne "case-insensitive"
     return str.match(regex);
 }
-function addEntry() { //passos 36 a 49 e 51
+function addEntry() { //passos 36 a 49 e 51 a 53
     const targetInputContainer = document.querySelector(`#${entryDropdown.value} .input-container`);
     const entryNumber = targetInputContainer.querySelectorAll('input[type="text"]').length + 1;
     const HTMLString = `
@@ -22,6 +22,6 @@ function addEntry() { //passos 36 a 49 e 51
     <label for="${entryDropdown.value}-${entryNumber}-calories">Entry ${entryNumber} Calories</label>
     <input type="number" min="0" placeholder="Calories" id="${entryDropdown.value}-${entryNumber}-calories">
     `;
-    targetInputContainer.innerHTML += HTMLString;
+    targetInputContainer.insertAdjacentHTML('beforeend', HTMLString)
 }
 addEntryButton.addEventListener('click', addEntry);//passo 50
