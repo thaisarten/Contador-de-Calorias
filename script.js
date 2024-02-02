@@ -28,7 +28,7 @@ function addEntry() { //passos 36 a 49 e 51 a 53
     `;
     targetInputContainer.insertAdjacentHTML('beforeend', HTMLString)
 }
-addEntryButton.addEventListener('click', addEntry);//passo 50
+
 function getCaloriesFromInputs(list) { // passos 54 a 64
     let calories = 0;
     for (let i = 0; i < list.length; i++) {
@@ -76,5 +76,17 @@ function calculateCalories(e) { //passos 65 a 84
     <p>${exerciseCalories} Calories Burned</p>
     `;
     output.classList.remove("hide")
-    
+
 }
+function clearForm() {//passos 87 a 93
+    const inputContainers = Array.from(document.querySelectorAll(".input-container"));
+    for (let i = 0; i < inputContainers.length; i++) {
+        inputContainers[i].innerHTML = '';
+    }
+    budgetNumberInput.value = '';
+    output.innerText = '';
+    output.classList.add("hide");
+}
+addEntryButton.addEventListener('click', addEntry);//passo 50
+calorieCounter.addEventListener('submit', calculateCalories);//passo 86
+clearButton.addEventListener('click', clearForm);//passo 94
